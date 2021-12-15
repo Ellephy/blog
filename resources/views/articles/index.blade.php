@@ -1,10 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5" style="width: 60%;">
+
+    @if (session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+    @endif
+
     {{ $articles->links() }}
     @foreach ($articles as $article)
-    <div class="card mb-2" style="width: 70%;">
+    <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title">
                 {{ $article->title }}
@@ -21,5 +28,6 @@
         </div>
     </div>
     @endforeach
+    {{ $articles->links() }}
 </div>
 @endsection
